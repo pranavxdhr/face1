@@ -122,6 +122,11 @@ def stop_webcam():
     global running
     running = False
     messagebox.showinfo("Goodbye", "Thank you, next")
+def clrcsv():
+    file_path=r"C:\Users\Dell\Desktop\face1\Attendance.csv"
+    with open(file_path,'w') as f:
+        f.write('name,Time\n')
+    messagebox.showinfo("csv cleared", "cleared")
 
 # Create the GUI window
 root = tk.Tk()
@@ -130,7 +135,11 @@ root.title("Webcam Control")
 start_button = tk.Button(root, text="Start Webcam", command=start_webcam)
 start_button.pack()
 
+
 stop_button = tk.Button(root, text="Stop Webcam", command=stop_webcam)
 stop_button.pack()
+clear_button=tk.Button(root, text="clear csv", command=clrcsv)
+clear_button.pack()
+
 
 root.mainloop()
